@@ -37,17 +37,25 @@ echo "Another variable: $Name<br><br>";
 // 🟢 Variable Scope
 // =========================================
 // Scope determines where a variable can be accessed
+// - Local: Inside a function or method
+// - Global: Outside of functions, accessible everywhere in the script
+// - Static: Retains its value even after the function ends
 
-$globalVar = "I'm global!";
 
+$x = 10; // Global variable
+ 
 function testScope() {
-    // This won't access $globalVar directly unless we use 'global'
-    global $globalVar;
-    echo "Inside function: $globalVar<br>";
+    $y = 20; // Local variable
+    global $x; // Accessing global variable
+    echo "Inside function: x = $x, y = $y<br>";
 }
 
-testScope();
-
+//static variable example
+function testStatic() {
+    static $count = 0; // Static variable
+    $count++;
+    echo "Static count: $count<br>";
+}
 
 // =========================================
 // 🟢 Variable Variables
