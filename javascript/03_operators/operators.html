@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head><title>JS Operators</title></head>
+<body>
+
+<h2>Open the console (F12) to see the results</h2>
+
+<script>
+// ===============================
+// ➕ Arithmetic Operators
+// ===============================
+let a = 10;
+let b = 3;
+
+console.log("Addition:", a + b);        // 13
+console.log("Subtraction:", a - b);     // 7
+console.log("Multiplication:", a * b);  // 30
+console.log("Division:", a / b);        // 3.333...
+console.log("Modulus (remainder):", a % b); // 1
+console.log("Exponentiation:", a ** b); // 1000
+
+// ===============================
+// 🟢 Assignment Operators
+// ===============================
+let x = 5;
+x += 2; // x = x + 2
+console.log("x += 2:", x); // 7
+
+x *= 3;
+console.log("x *= 3:", x); // 21
+
+// ===============================
+// 🟡 Comparison Operators
+// ===============================
+let age = 18;
+console.log("Is age equal to 18?", age == 18);      // true
+console.log("Is age strictly equal?", age === "18"); // false (different type)
+console.log("Not equal:", age != 20);                // true
+console.log("Greater than:", age > 16);              // true
+
+// ===============================
+// 🔴 Logical Operators
+// ===============================
+let loggedIn = true;
+let isAdmin = false;
+
+console.log("AND (&&):", loggedIn && isAdmin);  // false
+console.log("OR (||):", loggedIn || isAdmin);   // true
+console.log("NOT (!):", !isAdmin);              // true
+
+</script>
+
+</body>
+</html>
