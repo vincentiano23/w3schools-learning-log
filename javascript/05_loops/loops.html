@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head><title>JavaScript Loops</title></head>
+<body>
+
+<h2>Check the console for loop examples</h2>
+
+<script>
+// =========================================
+// 🔁 for loop
+// =========================================
+for (let i = 1; i <= 5; i++) {
+    console.log("For loop count:", i);
+}
+
+// =========================================
+// 🔁 while loop
+// =========================================
+let j = 1;
+while (j <= 3) {
+    console.log("While loop count:", j);
+    j++;
+}
+
+// =========================================
+// 🔁 do...while loop
+// (Executes at least once)
+// =========================================
+let k = 1;
+do {
+    console.log("Do...while loop count:", k);
+    k++;
+} while (k <= 2);
+
+// =========================================
+// 🔁 for...of loop (loops through arrays)
+// =========================================
+const colors = ["Red", "Green", "Blue"];
+for (let color of colors) {
+    console.log("Color:", color);
+}
+
+// =========================================
+// 🔁 for...in loop (loops through object keys)
+// =========================================
+const person = { name: "Vincent", age: 25, country: "Kenya" };
+for (let key in person) {
+    console.log(key + ":", person[key]);
+}
+</script>
+
+</body>
+</html>
