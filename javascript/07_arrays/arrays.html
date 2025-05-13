@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head><title>JavaScript Arrays</title></head>
+<body>
+
+<h2>Check the console to learn about arrays</h2>
+
+<script>
+// =============================
+// ✅ Creating Arrays
+// =============================
+let fruits = ["Apple", "Banana", "Mango"];
+console.log("Fruits:", fruits);
+
+let names = new Array("John", "Jane", "Doe");
+console.log("Names:", names);
+
+// Array with mixed types  
+let mixedArray = [1, "Hello", true, null];
+console.log("Mixed Array:", mixedArray);
+
+// Array with different data types
+let mixedTypes = [1, "Hello", true, null, undefined, { name: "John" }, [1, 2, 3]];
+console.log("Mixed Types:", mixedTypes);
+
+// Array with empty slots
+let emptyArray = [1, , 3]; // Note the empty slot   
+console.log("Empty Array:", emptyArray); // [1, <1 empty item>, 3]
+
+// Array with different data types
+let differentTypes = [1, "Hello", true, null, undefined, { name: "John" }, [1, 2, 3]];
+console.log("Different Types:", differentTypes);
+
+// Array using constructor
+let numbers = new Array(1, 2, 3, 4);
+console.log("Numbers:", numbers);
+
+// =============================
+// 🧪 Accessing & Modifying
+// =============================
+console.log("First fruit:", fruits[0]); // Apple
+fruits[1] = "Blueberry"; // Change Banana to Blueberry
+console.log("Updated fruits:", fruits);
+
+// =============================
+// 📏 Array Length
+// =============================
+console.log("Number of fruits:", fruits.length);
+
+// =============================
+// ➕ Adding & Removing Elements
+// =============================
+fruits.push("Orange");        // Add to end
+console.log("After push:", fruits);
+
+fruits.pop();                 // Remove from end
+console.log("After pop:", fruits);
+
+fruits.unshift("Strawberry"); // Add to beginning
+console.log("After unshift:", fruits);
+
+fruits.shift();               // Remove from beginning
+console.log("After shift:", fruits);
+
+// =============================
+// 🔁 Looping Through Arrays
+// =============================
+console.log("Using for loop:");
+for (let i = 0; i < fruits.length; i++) {
+    console.log(fruits[i]);
+}
+
+console.log("Using for...of loop:");
+for (let fruit of fruits) {
+    console.log(fruit);
+}
+
+// =============================
+// 🔍 Array Methods
+// =============================
+let mixed = [1, "hello", true];
+console.log("Includes 'hello':", mixed.includes("hello")); // true
+
+let joined = fruits.join(", ");
+console.log("Joined fruits:", joined);
+
+let sliced = fruits.slice(1, 3); // copy from index 1 to 2
+console.log("Sliced:", sliced);
+
+let moreFruits = ["Grapes", "Pineapple"];
+let combined = fruits.concat(moreFruits);
+console.log("Combined arrays:", combined);
+
+// =============================
+// 🧹 Other Useful Methods
+// =============================
+fruits.sort();      // Alphabetical sort
+console.log("Sorted fruits:", fruits);
+
+fruits.reverse();   // Reverse order
+console.log("Reversed fruits:", fruits);
+
+// =============================
+// ✅ Nested Arrays
+// =============================
+let matrix = [
+    [1, 2],
+    [3, 4],
+    [5, 6]
+];
+console.log("Element at row 2, col 1:", matrix[1][0]); // 3
+</script>
+
+</body>
+</html>
