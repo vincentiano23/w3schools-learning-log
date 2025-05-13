@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head><title>JavaScript Functions</title></head>
+<body>
+
+<h2>Open the console — Functions in action</h2>
+
+<script>
+// ===============================
+// ✅ Function Declaration
+// ===============================
+function greet(name) {
+    console.log("Hello, " + name + "!");
+}
+greet("Vincent");
+
+// ===============================
+// ✅ Function Expression
+// ===============================
+const add = function(a, b) {
+    return a + b;
+};
+console.log("Add result:", add(5, 3));
+
+// ===============================
+// ✅ Arrow Function (ES6+)
+// ===============================
+const multiply = (x, y) => x * y;
+console.log("Multiply result:", multiply(4, 6));
+
+// ===============================
+// ✅ Default Parameters
+// ===============================
+function sayHi(name = "Guest") {
+    console.log("Hi, " + name);
+}
+sayHi();       // Hi, Guest
+sayHi("Muli"); // Hi, Muli
+
+// ===============================
+// ✅ Returning Values
+// ===============================
+function square(n) {
+    return n * n;
+}
+let result = square(5);
+console.log("Square:", result);
+
+// ===============================
+// ✅ Functions Calling Functions
+// ===============================
+function printSquare(n) {
+    let squared = square(n);
+    console.log("Square of", n, "is", squared);
+}
+printSquare(8);
+</script>
+
+</body>
+</html>
