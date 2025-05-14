@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head><title>Objects & JSON</title></head>
+<body>
+
+<h2>Check the console for Object and JSON examples</h2>
+
+<script>
+// ===========================
+// ✅ Creating Objects
+// ===========================
+const person = {
+    firstName: "Vincent",
+    lastName: "Muli",
+    age: 25,
+    skills: ["HTML", "CSS", "JS"],
+    isDeveloper: true,
+    greet: function() {
+        return "Hi, I'm " + this.firstName;
+    }
+};
+
+console.log("Person object:", person);
+console.log("Full name:", person.firstName + " " + person.lastName);
+console.log("Skill 2:", person.skills[1]);
+console.log("Greet method:", person.greet());
+
+// ===========================
+// 🧠 Accessing Properties
+// ===========================
+console.log(person["age"]);        // bracket notation
+person.age = 26;                   // update property
+console.log("Updated age:", person.age);
+
+// ===========================
+// ➕ Adding / Removing
+// ===========================
+person.country = "Kenya";          // add property
+delete person.skills;              // remove property
+console.log("Modified object:", person);
+
+// ===========================
+// 🔄 Looping Through Object
+// ===========================
+for (let key in person) {
+    console.log(key + ":", person[key]);
+}
+
+// ===========================
+// 🧱 JSON (JavaScript Object Notation)
+// ===========================
+const jsonString = JSON.stringify(person);  // Convert to JSON string
+console.log("JSON string:", jsonString);
+
+const parsedObject = JSON.parse(jsonString); // Convert back to JS object
+console.log("Parsed object:", parsedObject);
+</script>
+
+</body>
+</html>
