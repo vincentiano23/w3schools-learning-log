@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Manipulation</title>
+  <style>
+    #message { color: green; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<h2 id="title">Hello, DOM!</h2>
+<p id="message">This message will change...</p>
+<button onclick="changeText()">Change Text</button>
+
+<script>
+// ✅ Accessing DOM elements
+let title = document.getElementById("title");
+let message = document.getElementById("message");
+
+// ✅ Changing content
+function changeText() {
+    title.innerText = "DOM Updated!";
+    message.innerHTML = "The content has been changed via <strong>JavaScript</strong>!";
+}
+
+// ✅ Changing styles
+title.style.color = "blue";
+message.style.fontSize = "18px";
+</script>
+
+</body>
+</html>
