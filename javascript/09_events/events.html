@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head><title>JavaScript Events</title></head>
+<body>
+
+<h2>JavaScript Events</h2>
+
+<input type="text" id="nameInput" placeholder="Type your name" />
+<button id="greetBtn">Greet Me</button>
+
+<p id="output"></p>
+
+<script>
+// ✅ Get references
+const input = document.getElementById("nameInput");
+const button = document.getElementById("greetBtn");
+const output = document.getElementById("output");
+
+// ✅ Add event listener
+button.addEventListener("click", function() {
+    const name = input.value;
+    if (name) {
+        output.innerText = "Hello, " + name + "!";
+    } else {
+        output.innerText = "Please enter your name!";
+    }
+});
+
+// ✅ Other event: oninput (as you type)
+input.addEventListener("input", function() {
+    console.log("Typing:", input.value);
+});
+</script>
+
+</body>
+</html>
