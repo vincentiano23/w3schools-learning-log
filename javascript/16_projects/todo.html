@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>To-Do List</title>
+  <title>To-Do List with Timestamps</title>
   <style>
     body { font-family: Arial; padding: 20px; }
     input { padding: 8px; width: 200px; }
@@ -10,19 +10,28 @@
     li {
       padding: 10px;
       margin: 5px 0;
-      background: #f1f1f1;
+      background: #f9f9f9;
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
-    li.completed {
+    li.completed span.task-text {
       text-decoration: line-through;
       color: gray;
+    }
+    .timestamp {
+      font-size: 12px;
+      color: #888;
+    }
+    .task-info {
+      display: flex;
+      flex-direction: column;
     }
   </style>
 </head>
 <body>
 
-<h2>📝 To-Do List</h2>
+<h2>📝 To-Do List with Time</h2>
 
 <input type="text" id="taskInput" placeholder="Add a task">
 <button onclick="addTask()">Add</button>
@@ -32,14 +41,15 @@
 <script>
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-// Load tasks on page load
 window.onload = renderTasks;
 
 function addTask() {
   const input = document.getElementById("taskInput");
-  const task = input.value.trim();
-  if (task) {
-    tasks.push({ text: task, completed: false });
+  const taskText = input.value.trim();
+  if (taskText) {
+    const now = new Date();
+    const timestamp = now.toLocaleString(); // e.g. 5/14/2025, 10:34:12 AM
+    tasks.push({ text: taskText, completed: false, timestamp: timestamp });
     saveTasks();
     input.value = "";
     renderTasks();
@@ -48,14 +58,17 @@ function addTask() {
 
 function renderTasks() {
   const list = document.getElementById("taskList");
-  list.innerHTML = ""; // Clear list
+  list.innerHTML = "";
 
   tasks.forEach((task, index) => {
     const li = document.createElement("li");
     li.className = task.completed ? "completed" : "";
 
     li.innerHTML = `
-      <span onclick="toggleTask(${index})">${task.text}</span>
+      <div class="task-info" onclick="toggleTask(${index})">
+        <span class="task-text">${task.text}</span>
+        <span class="timestamp">Added: ${task.timestamp}</span>
+      </div>
       <button onclick="deleteTask(${index})">❌</button>
     `;
     list.appendChild(li);
