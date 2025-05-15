@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Storage API</title>
+  <style>
+    body { font-family: sans-serif; }
+    input, button { margin: 5px; padding: 8px; }
+  </style>
+</head>
+<body>
+
+<h2>Web Storage: localStorage & sessionStorage</h2>
+
+<!-- localStorage section -->
+<h3>localStorage (persistent)</h3>
+<input type="text" id="localInput" placeholder="Enter local value">
+<button onclick="saveToLocal()">Save</button>
+<button onclick="getFromLocal()">Get</button>
+<p id="localResult"></p>
+
+<!-- sessionStorage section -->
+<h3>sessionStorage (temporary)</h3>
+<input type="text" id="sessionInput" placeholder="Enter session value">
+<button onclick="saveToSession()">Save</button>
+<button onclick="getFromSession()">Get</button>
+<p id="sessionResult"></p>
+
+<script>
+// ✅ localStorage functions
+function saveToLocal() {
+  const value = document.getElementById("localInput").value;
+  localStorage.setItem("myLocalData", value); // Key = myLocalData
+}
+
+function getFromLocal() {
+  const saved = localStorage.getItem("myLocalData");
+  document.getElementById("localResult").innerText = "Saved in localStorage: " + saved;
+}
+
+// ✅ sessionStorage functions
+function saveToSession() {
+  const value = document.getElementById("sessionInput").value;
+  sessionStorage.setItem("mySessionData", value); // Key = mySessionData
+}
+
+function getFromSession() {
+  const saved = sessionStorage.getItem("mySessionData");
+  document.getElementById("sessionResult").innerText = "Saved in sessionStorage: " + saved;
+}
+</script>
+
+</body>
+</html>
