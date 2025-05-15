@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Timers</title>
+  <style>
+    #countdown { font-size: 24px; font-weight: bold; }
+    #clock { font-size: 20px; color: blue; }
+  </style>
+</head>
+<body>
+
+<h2>setTimeout and setInterval Demo</h2>
+
+<!-- setTimeout example -->
+<button onclick="delayedMessage()">Show Delayed Message</button>
+<p id="timeoutResult"></p>
+
+<!-- setInterval example -->
+<h3>Live Clock:</h3>
+<p id="clock"></p>
+
+<!-- Countdown example -->
+<h3>Countdown (from 5):</h3>
+<p id="countdown"></p>
+
+<script>
+// ✅ setTimeout – runs once after delay
+function delayedMessage() {
+  document.getElementById("timeoutResult").innerText = "Waiting for 3 seconds...";
+  setTimeout(function() {
+    document.getElementById("timeoutResult").innerText = "This message appears after 3 seconds!";
+  }, 3000); // 3000 milliseconds = 3 seconds
+}
+
+// ✅ setInterval – runs repeatedly every interval
+function showClock() {
+  const now = new Date();
+  document.getElementById("clock").innerText = now.toLocaleTimeString();
+}
+setInterval(showClock, 1000); // update every 1 second
+
+// ✅ Countdown using setInterval
+let count = 5;
+const countdownEl = document.getElementById("countdown");
+const interval = setInterval(function() {
+  if (count >= 0) {
+    countdownEl.innerText = count;
+    count--;
+  } else {
+    clearInterval(interval); // stop when done
+    countdownEl.innerText = "Countdown complete!";
+  }
+}, 1000);
+</script>
+
+</body>
+</html>
