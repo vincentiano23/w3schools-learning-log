@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Forms and Validation</title>
+  <style>
+    .error { color: red; }
+    .success { color: green; }
+  </style>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form id="registerForm">
+  <label>Username:</label><br>
+  <input type="text" id="username" /><br><br>
+
+  <label>Email:</label><br>
+  <input type="email" id="email" /><br><br>
+
+  <label>Password:</label><br>
+  <input type="password" id="password" /><br><br>
+
+  <button type="submit">Register</button>
+</form>
+
+<p id="message"></p>
+
+<script>
+// ✅ DOM References
+const form = document.getElementById("registerForm");
+const username = document.getElementById("username");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const message = document.getElementById("message");
+
+// ✅ Validation function
+form.addEventListener("submit", function(event) {
+  event.preventDefault(); // prevent form from submitting
+
+  // Trim values to remove extra spaces
+  const user = username.value.trim();
+  const mail = email.value.trim();
+  const pass = password.value.trim();
+
+  // Simple validation checks
+  if (user === "" || mail === "" || pass === "") {
+    message.innerText = "All fields are required.";
+    message.className = "error";
+    return;
+  }
+
+  if (pass.length < 6) {
+    message.innerText = "Password must be at least 6 characters.";
+    message.className = "error";
+    return;
+  }
+
+  if (!mail.includes("@")) {
+    message.innerText = "Invalid email format.";
+    message.className = "error";
+    return;
+  }
+
+  // If all is good
+  message.innerText = "Form submitted successfully!";
+  message.className = "success";
+
+  // You could now send data to a server...
+});
+</script>
+
+</body>
+</html>
