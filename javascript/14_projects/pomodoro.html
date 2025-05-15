@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pomodoro Timer</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      padding: 30px;
+    }
+    #timer {
+      font-size: 48px;
+      margin: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Pomodoro Timer 🍅</h2>
+<div id="timer">25:00</div>
+
+<button onclick="startTimer()">Start</button>
+<button onclick="resetTimer()">Reset</button>
+
+<script>
+let minutes = 25;
+let seconds = 0;
+let interval = null;
+
+function updateDisplay() {
+  let min = minutes < 10 ? "0" + minutes : minutes;
+  let sec = seconds < 10 ? "0" + seconds : seconds;
+  document.getElementById("timer").innerText = `${min}:${sec}`;
+}
+
+function startTimer() {
+  if (interval) return; // Prevent multiple intervals
+
+  interval = setInterval(() => {
+    if (seconds === 0) {
+      if (minutes === 0) {
+        clearInterval(interval);
+        alert("Time's up! Take a break.");
+        return;
+      }
+      minutes--;
+      seconds = 59;
+    } else {
+      seconds--;
+    }
+    updateDisplay();
+  }, 1000);
+}
+
+function resetTimer() {
+  clearInterval(interval);
+  interval = null;
+  minutes = 25;
+  seconds = 0;
+  updateDisplay();
+}
+
+updateDisplay(); // Initialize display
+</script>
+
+</body>
+</html>
