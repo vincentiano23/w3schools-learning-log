@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Modules</title>
+</head>
+<body>
+  <h2>Check the console for module output</h2>
+
+  <!-- Use type="module" to enable ES6 import/export -->
+  <script type="module">
+    import { add, multiply } from './math.js';
+    import { greeting } from './messages.js';
+
+    console.log(greeting); // Output: Hello from the messages module!
+    console.log("Add: ", add(5, 3)); // 8
+    console.log("Multiply: ", multiply(4, 2)); // 8
+  </script>
+</body>
+</html>
