@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Currency Converter</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, select, button {
+      margin: 10px;
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>💱 Currency Converter</h2>
+
+  <input type="number" id="amount" placeholder="Enter amount" />
+
+  <select id="from">
+    <option value="USD">USD</option>
+    <option value="KES">KES</option>
+    <option value="EUR">EUR</option>
+  </select>
+
+  <select id="to">
+    <option value="EUR">EUR</option>
+    <option value="USD">USD</option>
+    <option value="KES">KES</option>
+  </select>
+
+  <button id="convertBtn">Convert</button>
+
+  <h3 id="result">Converted amount will appear here</h3>
+
+  <!-- Module script -->
+  <script type="module" src="./script.js"></script>
+
+</body>
+</html>
