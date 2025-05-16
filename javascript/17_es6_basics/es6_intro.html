@@ -1,0 +1,32 @@
+<!-- Modern JavaScript ES6+ Feature Examples -->
+<script>
+  // 1. let & const
+  let name = "Vincent";
+  const year = 2025;
+
+  // 2. Template Literals
+  console.log(`Hello, ${name}. Welcome to the year ${year}.`);
+
+  // 3. Arrow Functions
+  const add = (a, b) => a + b;
+  console.log("Sum:", add(5, 3));
+
+  // 4. Destructuring
+  const user = { username: "vincent", age: 23 };
+  const { username, age } = user;
+  console.log(`User: ${username}, Age: ${age}`);
+
+  // 5. Spread Operator
+  const nums = [1, 2, 3];
+  const moreNums = [...nums, 4, 5]; // [1,2,3,4,5]
+  console.log("Spread:", moreNums);
+
+  // 6. Default Parameters
+  const greet = (name = "Guest") => `Hi, ${name}!`;
+  console.log(greet());
+  console.log(greet("Vincent"));
+
+  // 7. Rest Parameters
+  const sumAll = (...numbers) => numbers.reduce((a, b) => a + b, 0);
+  console.log("Total:", sumAll(1, 2, 3, 4, 5));
+</script>
